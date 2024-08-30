@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+/ER_diagram_LMDS.png
+/src/main/resources/.env
+/microservices.png
