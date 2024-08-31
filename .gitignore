@@ -33,4 +33,4 @@ build/
 .vscode/
 /ER_diagram_LMDS.png
 /src/main/resources/.env
-/microservices.png
+microservices.png
