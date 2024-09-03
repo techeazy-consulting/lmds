@@ -44,4 +44,7 @@ public class ParcelController {
 		parcelService.deleteParcel(id);
 		return ResponseEntity.noContent().build();
 	}
+	public static void main(String[] args) {
+		
+	}
 }
