@@ -13,6 +13,14 @@ import org.springframework.security.web.authentication.password.HaveIBeenPwnedRe
 @Configuration
 @EnableWebSecurity
 public class ProjectSecurityConfig {
+	
+	private static final String[] AUTH_WHITELIST = {
+	        "/api/v1/auth/**",
+	        "/v3/api-docs/**",
+	        "/v3/api-docs.yaml",
+	        "/swagger-ui/**",
+	        "/swagger-ui.html"
+	};
 
 	
 	@Bean
@@ -20,7 +28,8 @@ public class ProjectSecurityConfig {
 		http.csrf(csrfConfig -> csrfConfig.disable())
 				.authorizeHttpRequests((requests) -> requests
 						.requestMatchers("/testClient").authenticated()
-						.requestMatchers("/error", "/registerClient").permitAll())
+						.requestMatchers(AUTH_WHITELIST).permitAll()
+						.requestMatchers("/error", "/registerClient","/getOrderDetail/**").permitAll())
 				.httpBasic(Customizer.withDefaults())
 	            .formLogin(Customizer.withDefaults());;
 		return http.build();
@@ -35,5 +44,6 @@ public class ProjectSecurityConfig {
 	public CompromisedPasswordChecker compromisedPasswordChecker() {
 		return new HaveIBeenPwnedRestApiPasswordChecker();
 	}
+	
 
 }

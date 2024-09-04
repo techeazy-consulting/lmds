@@ -19,4 +19,8 @@ public class Messages {
 	private long id;
 	
 	private String status;
+	
+	private char isActive;
+	
+	private char isDeleted;
 }

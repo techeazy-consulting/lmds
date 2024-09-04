@@ -23,5 +23,9 @@ public class Item {
 	
 	private double price;
 	
+	private char isActive;
+	
+	private char isDeleted;
+	
 
 }
