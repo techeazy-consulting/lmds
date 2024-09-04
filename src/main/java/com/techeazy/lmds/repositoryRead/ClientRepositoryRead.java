@@ -13,7 +13,7 @@ public interface ClientRepositoryRead extends CrudRepository<Client,Long>{
 	
 	Optional<Client> findByEmail(String emailAdress);
 	
-	@Query(value= "select b from Client b where b.mobile=?1 and b.isDeleted=?2")
+	@Query(value= "select b from Client b where b.mobile=?1 and b.email=?2 and b.isActive='Y' and b.isDeleted='N'")
 	Client getClientdetailByMobileEmail(long mobile, String email);
 
 }

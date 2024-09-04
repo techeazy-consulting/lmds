@@ -1,6 +1,7 @@
 package com.techeazy.lmds.entity;
 
-import java.sql.Date;
+
+import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -18,7 +19,7 @@ import lombok.Setter;
 public class Client {
 	@Id
 	@Column(name="CLIENTID",unique = true, nullable=false)
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
 	@Column(name="NAME", nullable=false)
