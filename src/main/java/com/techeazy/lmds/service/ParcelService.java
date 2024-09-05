@@ -1,10 +1,11 @@
 package com.techeazy.lmds.service;
 
 import com.techeazy.lmds.entity.Parcel;
+import com.techeazy.lmds.response.CommonResponse;
 
 public interface ParcelService {
 	
-	boolean createParcel(Parcel parcel);
+	CommonResponse createParcel(Parcel parcel);
 	
 	
 

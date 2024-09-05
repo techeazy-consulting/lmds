@@ -1,16 +1,11 @@
 package com.techeazy.lmds.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.techeazy.lmds.entity.Client;
-import com.techeazy.lmds.entity.Order;
 import com.techeazy.lmds.requests.NewClientRegister;
 import com.techeazy.lmds.response.ClientResponse;
-import com.techeazy.lmds.response.OrderDetailResponse;
 import com.techeazy.lmds.service.ClientService;
 
 @RestController
@@ -30,16 +25,7 @@ public class ClientController {
 //		
 //	}
 	
-	@GetMapping("/getOrderDetail/{id}")
-	public OrderDetailResponse getOrderDetail(@PathVariable int id) {
-		return clientService.getOrderDetail(id);
-		
-	}
 	
-	@GetMapping("/getOrderDetail/{order}")
-	public OrderDetailResponse uploadOrderDetail(@PathVariable Order order) {
-		return clientService.uploadOrderDetail(order);
-	}
 	
 	@PostMapping("/registerClient")
 	public ClientResponse registerClient(NewClientRegister client) {

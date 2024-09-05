@@ -11,7 +11,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "driver")
+@Table(name = "DRIVER")
 public class Driver {
 
 	@Id
@@ -19,6 +19,10 @@ public class Driver {
 	private long id;
 
 	private String name;
+	
+	private long mobile;
+	
+	private String email;
 
 	private int age;
 
@@ -27,5 +31,11 @@ public class Driver {
 	private char isActive;
 
 	private char isDeleted;
+	
+	private long parcleId;
+	
+	private long customerId;
+	
+	private String status;
 
 }

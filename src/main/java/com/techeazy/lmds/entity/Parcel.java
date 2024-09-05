@@ -30,20 +30,26 @@ public class Parcel {
 	@Column(name="CLIENTID", nullable=false)
 	private long clientId;
 	
-//	@Column(name="CUSTOMERID", nullable=false)
-//	private long customerId;
+	@Column(name="CUSTOMERID", nullable=false)
+	private long customerId;
 	
-//	@Column(name="LOCATION", nullable=false)
-//	private String location;
-//	
-//	@Column(name="PINCODE", nullable=false)
-//	private long pincode;
+	@Column(name="LOCATION", nullable=false)
+	private String location;
+	
+	@Column(name="PINCODE", nullable=false)
+	private long pincode;
 //	
 //	@OneToOne
 //	private Customer customer;
 	
 //	@OneToMany
 //	private List<Item> item;
+	
+	@Column(name="PARCELSTATUS", nullable=false)
+	private String parcelStatus;
+	
+	@Column(name="STATUSCODE", nullable=false)
+	private int statusCode;
 	
 	@Column(name="ISACTIVE", nullable=false)
 	private char isActive;

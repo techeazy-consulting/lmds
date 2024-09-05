@@ -1,15 +1,17 @@
 package com.techeazy.lmds.service;
 
-import java.util.List;
-
-import com.techeazy.lmds.entity.Order;
+import com.techeazy.lmds.requests.CommonRequest;
+import com.techeazy.lmds.requests.SupervisorRequest;
+import com.techeazy.lmds.response.SupervisorResponse;
 
 public interface SupervisorService {
 	
-	List<Order> getAllorder();
+	SupervisorResponse getAllOrderOfClients(CommonRequest request);
 	
-	List<Order> getOrdersByLocation();
+	SupervisorResponse getAllOrdersByLocation(SupervisorRequest request);
 	
-	List<Order> getOrdersByPincode();
+	SupervisorResponse getAllOrdersByPincode(SupervisorRequest request);
+	
+	SupervisorResponse getParticularClientOrder(SupervisorRequest request);
 
 }

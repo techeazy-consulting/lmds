@@ -49,8 +49,8 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 				createOrder.setClientId(client.getId());
 				createOrder.setIsActive('Y');
 				createOrder.setIsDeleted('N');
-				createOrder.setLocation(orderRequest.getAddress());
-				createOrder.setPincode(orderRequest.getPincode());
+//				createOrder.setLocation(orderRequest.getAddress());
+//				createOrder.setPincode(orderRequest.getPincode());
 				for (ParcelRequest eachParcel : orderRequest.getParcels()) {
 					Parcel parcel = new Parcel();
 					parcel.setClientId(client.getId());
@@ -77,7 +77,7 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 		OrderDetailResponse response = new OrderDetailResponse();
 		Client client=ClientRepositoryRead.getClientdetailByMobileEmail(orderFetchRequest.getMobileNumber(), orderFetchRequest.getEmail());
 		if(client.getId()!=0) {
-			List<Order> orders= oderDetailRepoRead.getClientOrder(client.getId());
+			Order orders= oderDetailRepoRead.getClientOrder(client.getId());
 			List<Parcel> parcels= parcelRepoRead.getClientParcel(client.getId());
 			response.setClientName(client.getName());
 			response.setMessage("Your List of Parcels");

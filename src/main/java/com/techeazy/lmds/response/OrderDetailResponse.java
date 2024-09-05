@@ -10,12 +10,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class OrderDetailResponse {
+public class OrderDetailResponse extends CommonResponse {
 	private long mobileNum;
 	private String clientName;
-	private List<Order> orders;
+	private Order orders;
 	private List<Parcel> parcels;
-	private int status;
-	private String message;
-
 }

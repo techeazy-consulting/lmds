@@ -5,11 +5,10 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class ParcelRequest {
+public class SupervisorRequest extends CommonRequest {
 	
-	private String name;
-	private long location;
+	private long clientId;
+	private long pincode;
 	private String address;
-	private long customerId;
 
 }

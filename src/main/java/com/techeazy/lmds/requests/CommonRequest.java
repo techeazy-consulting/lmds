@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class OrderFetchRequest {
+public class CommonRequest {
 	
 	private long mobileNumber;
 	private String email;

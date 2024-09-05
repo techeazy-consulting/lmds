@@ -1,6 +1,7 @@
 package com.techeazy.lmds.configuration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.authentication.password.CompromisedPasswordChecker;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -11,8 +12,9 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.password.HaveIBeenPwnedRestApiPasswordChecker;
 
 @Configuration
+@Profile("prod")
 @EnableWebSecurity
-public class ProjectSecurityConfig {
+public class ProjectSecurityProdConfig {
 	
 	private static final String[] AUTH_WHITELIST = {
 	        "/api/v1/auth/**",

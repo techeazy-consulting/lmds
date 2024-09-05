@@ -7,11 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class OrderDetailRequest {
-	
-	private long mobileNumber;
-	private String email;
-	private String role;
+public class OrderDetailRequest extends CommonRequest {
 	private String address;
 	private long pincode;
 	private List<ParcelRequest> parcels;
