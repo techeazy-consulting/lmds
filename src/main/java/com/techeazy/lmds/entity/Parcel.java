@@ -22,7 +22,7 @@ public class Parcel {
 	@Id
 	@Column(name="PARCELID", nullable=false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private long ParcelId;
 	
 	@Column(name="PARCELNAME", nullable=false)
 	private String parcelName;

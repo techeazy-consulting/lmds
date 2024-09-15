@@ -10,6 +10,7 @@ import com.techeazy.lmds.entity.Parcel;
 import com.techeazy.lmds.repositoryRead.DriverRepoRead;
 import com.techeazy.lmds.repositoryRead.ParcelRepoRead;
 import com.techeazy.lmds.repositoryWrite.DriverWriteRepo;
+import com.techeazy.lmds.repositoryWrite.ParcelRepoWrite;
 import com.techeazy.lmds.requests.DriverRequest;
 import com.techeazy.lmds.response.DriverResponse;
 import com.techeazy.lmds.utility.Constant;
@@ -25,6 +26,9 @@ public class DriverServiceImpl implements DriverService {
 	
 	@Autowired
 	ParcelRepoRead parcelRepoRead;
+	
+	@Autowired
+	ParcelRepoWrite parcelRepoWrite;
 
 	@Override
 	public DriverResponse registerDriver(DriverRequest driverRequest) {
@@ -81,7 +85,7 @@ public class DriverServiceImpl implements DriverService {
 		if(statusCode==Constant.DELIVERED) {
 			statusDescription="DELIVERED";
 		}
-		int update=parcelRepoRead.updateStatus(statusCode,statusDescription,parcelId);
+		int update=parcelRepoWrite.updateStatus(statusCode,statusDescription,parcelId);
 		if(update>=0) {
 			response.setMessage("Request Updated");
 			response.setStatus(0);

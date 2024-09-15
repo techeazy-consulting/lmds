@@ -24,7 +24,7 @@ public class Customer {
 	private String name;
 	
 	@Column(name="MOBILE",unique = true, nullable=false)
-	private String mobile;
+	private long mobile;
 	
 	@Column(name="EMAIL",unique = true, nullable=false)
 	private String email;
