@@ -43,16 +43,17 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 		if (orderRequest.getMobileNumber() == 0 && orderRequest.getEmail() != null) {
 			Client client = ClientRepositoryRead.getClientdetailByMobileEmail(orderRequest.getMobileNumber(),
 					orderRequest.getEmail());
-			// also check order already created
 			if (client != null && client.getRole().equalsIgnoreCase(orderRequest.getRole())) {
 				Order createOrder = new Order();
 				createOrder.setClientId(client.getId());
 				createOrder.setIsActive('Y');
 				createOrder.setIsDeleted('N');
-//				createOrder.setLocation(orderRequest.getAddress());
-//				createOrder.setPincode(orderRequest.getPincode());
+
 				for (ParcelRequest eachParcel : orderRequest.getParcels()) {
 					Parcel parcel = new Parcel();
+					parcel.setPincode(eachParcel.getPincode());
+					parcel.setLocation(eachParcel.getAddress());
+					parcel.setCustomerId(eachParcel.getCustomerId());
 					parcel.setClientId(client.getId());
 					parcel.setCreateDate(LMDSUtility.getDate());
 					parcel.setIsActive('Y');

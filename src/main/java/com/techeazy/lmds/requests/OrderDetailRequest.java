@@ -8,8 +8,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class OrderDetailRequest extends CommonRequest {
-	private String address;
-	private long pincode;
+	//private String address;
+	//private long pincode;
 	private List<ParcelRequest> parcels;
 
 }

@@ -8,7 +8,7 @@ import lombok.Setter;
 public class ParcelRequest {
 	
 	private String name;
-	private long location;
+	private long pincode;
 	private String address;
 	private long customerId;
 
