@@ -23,6 +23,10 @@ public class ParcelService {
 		return parcelRepository.findById(id);
 	}
 
+	public Parcel getParcelByTrackingId(String trackingId) {
+		return parcelRepository.findByTrackingId(trackingId);
+	}
+
 	public Parcel createParcel(Parcel parcel) {
 		return parcelRepository.save(parcel);
 	}

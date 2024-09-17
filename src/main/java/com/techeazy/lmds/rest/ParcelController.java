@@ -34,6 +34,12 @@ public class ParcelController {
 		return parcel.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
 	}
 
+	@GetMapping("/track/{trackingid}")
+	public Parcel getParcelByTrackingId(@PathVariable String trackingid) {
+		return parcelService.getParcelByTrackingId(trackingid);
+
+	}
+
 	@PostMapping
 	public Parcel createParcel(@RequestBody Parcel parcel) {
 		return parcelService.createParcel(parcel);
