@@ -30,7 +30,7 @@ public class Parcel {
 	private String destinationAddress;
 
 	@ManyToOne
-	@JoinColumn(name = "order_detail_id")
+	@JoinColumn(name = "order_detail_id", nullable = false)
 	private OrderDetail orderDetail;
 
 }
