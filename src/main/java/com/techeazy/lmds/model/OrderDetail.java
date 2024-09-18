@@ -22,7 +22,4 @@ public class OrderDetail {
     @JoinColumn(name = "client_id")
     private Client client;
 
-    @OneToMany
-    private List<Parcel> parcelList;
-
 }
