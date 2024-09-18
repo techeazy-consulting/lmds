@@ -15,6 +15,5 @@ public interface ParcelRepository extends JpaRepository<Parcel, Long> {
 
     Optional<Parcel> findByTrackingId(String trackingId);
 
-    @Query("SELECT p FROM Parcel p WHERE p.orderDetail.client.id = :clientId AND p.status = :status")
-    List<Parcel> findByClientIdAndStatus(@Param("clientId") Long clientId, @Param("status") String status);
+    List<Parcel> findByOrderDetailClientIdAndStatus(Long clientId, String status);
 }

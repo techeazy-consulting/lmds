@@ -36,6 +36,6 @@ public class ParcelService {
 	}
 
 	public List<Parcel> getParcelsByClientIdAndStatusOfParcel(Long clientId, String status){
-		return parcelRepository.findByClientIdAndStatus(clientId, status.toLowerCase());
+		return parcelRepository.findByOrderDetailClientIdAndStatus(clientId, status.toLowerCase());
 	}
 }

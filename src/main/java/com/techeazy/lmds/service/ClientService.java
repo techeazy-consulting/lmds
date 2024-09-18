@@ -22,8 +22,8 @@ public class ClientService {
         return clientRepository.findById(id);
     }
 
-    public Client createClient(Client Client){
-        return clientRepository.save(Client);
+    public Client createClient(Client client){
+        return clientRepository.save(client);
     }
 
     public void deleteClient(Long id){
