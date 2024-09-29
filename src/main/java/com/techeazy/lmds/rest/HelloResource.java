@@ -14,8 +14,13 @@ public class HelloResource {
 	@Autowired
 	private HelloService helloService;
 
-	@GetMapping("/greetings")
-	public String getMessage(@RequestParam(value = "name", defaultValue = "World") String name) {
+	@GetMapping("/admin/greetings")
+	public String getMessageAdmin(@RequestParam(value = "name", defaultValue = "admin") String name) {
+		return helloService.greetUser(name);
+	}
+
+	@GetMapping("/user/greetings")
+	public String getMessageUser(@RequestParam(value = "name", defaultValue = "user") String name) {
 		return helloService.greetUser(name);
 	}
 }
