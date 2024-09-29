@@ -2,7 +2,10 @@ package com.techeazy.lmds.config.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractAuthenticationFilterConfigurer;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -16,10 +19,30 @@ public class SecurityConfig {
 
     @Bean
     public UserDetailsService userDetailsService(){
-        UserDetails userDetails = User.withUsername("admin")
+        UserDetails admin = User.withUsername("admin")
                 .password(passwordEncoder().encode("password"))
+                .roles("ADMIN")
                 .build();
-        return new InMemoryUserDetailsManager(userDetails);
+
+        UserDetails user = User.withUsername("user")
+                .password(passwordEncoder().encode("password"))
+                .roles("USER")
+                .build();
+        return new InMemoryUserDetailsManager(admin, user);
+    }
+
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
+        httpSecurity.csrf(AbstractHttpConfigurer::disable)
+                .authorizeHttpRequests(authorize -> authorize
+                        .requestMatchers("/user/**").hasRole("USER")
+                        .anyRequest().hasRole("ADMIN")
+                )
+                .formLogin(AbstractAuthenticationFilterConfigurer::permitAll
+                ).httpBasic(Customizer.withDefaults());
+
+        return httpSecurity.build();
+
     }
 
     @Bean
@@ -27,18 +50,5 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-    /**
-     * For Basic Authentication for securing APIs
-     */
-    /*@Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
-        httpSecurity.csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests((requests) -> requests.
-                        requestMatchers("/api/**").authenticated()
-                        .anyRequest().permitAll()
-
-                );
-        return httpSecurity.build();
-    }*/
 
 }
