@@ -30,4 +30,12 @@ public class ParcelService {
 	public void deleteParcel(Long id) {
 		parcelRepository.deleteById(id);
 	}
+
+	public Optional<Parcel> getParcelByTrackingId(String trackingId){
+		return parcelRepository.findByTrackingId(trackingId);
+	}
+
+	public List<Parcel> getParcelsByClientIdAndStatusOfParcel(Long clientId, String status){
+		return parcelRepository.findByOrderDetailClientIdAndStatus(clientId, status.toLowerCase());
+	}
 }
